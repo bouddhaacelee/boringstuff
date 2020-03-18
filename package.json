@@ -2,7 +2,7 @@
 	"name": "clean-files",
 	"displayName": "Clean Files",
 	"description": "Clean found files",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
@@ -10,16 +10,38 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:boringstuff.cleanfiles",
+		"onCommand:boringstuff.createDirectoryTree"
 	],
-	"main": "./out/extension.js",
+	"main": "./out/boringstuff.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "boringstuff.cleanfiles",
+				"title": "Boring Stuff: Clean files"
+			},
+			{
+				"command": "boringstuff.createDirectoryTree",
+				"title": "Boring Stuff: Create Directory Tree"
 			}
-		]
+		], 
+		"configuration": {
+			"title": "BoringStuff",
+			"properties": {
+			  "BoringStuff.CleanFiles.include": {
+				"default": ["**/*.h5"],
+				"description": "A glob pattern that defines the files to search for. The glob pattern will be matched against the file paths of resulting matches relative to their workspace. Use a relative pattern to restrict the search results to a workspace folder. See VS Code API for more details."
+			  },
+			  "BoringStuff.CleanFiles.exclude": {
+				"default": "null",
+				"description": "A glob pattern that defines files and folders to exclude. The glob pattern will be matched against the file paths of resulting matches relative to their workspace. When undefined only default excludes will apply, when null no excludes will apply. See VS Code API for more details."
+			  },
+			  "BoringStuff.Create.directories": {
+				"default": ["a", "a/b", "c"],
+				"description": "Create a list of new directories (Note, that new files are created via write-calls). Note that missing directories are created automatically, e.g this call has mkdirp semantics. See VS Code API for more details."
+			  }
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
