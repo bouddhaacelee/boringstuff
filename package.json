@@ -1,7 +1,7 @@
 {
-	"name": "clean-files",
-	"displayName": "Clean Files",
-	"description": "Clean found files",
+	"name": "boringstuff",
+	"displayName": "Boring Stuff",
+	"description": "Automate some boring stuff",
 	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.43.0"
